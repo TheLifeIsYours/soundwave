@@ -81,6 +81,6 @@ function Star(x, y){
     }else{
       fill(col+colOffset, 100, col);
     }
-    ellipse(this.pos.x, this.pos.y, this.r, this.r);
+    ellipse(this.pos.x, this.pos.y, this.r + (this.r ** volHist[currHist-1]) ** 1.25, this.r  + (this.r ** volHist[currHist-1]) ** 1.25);
   }
 }
