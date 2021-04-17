@@ -118,7 +118,7 @@ function draw() {
   if(!player.isLoaded) return
   player.update()
   
-  background(0,0,0);//col+colOffset, 100, col);
+  background(0,0,0,  map(map(amp.getLevel(), 0, 1 * player.volume, 0, 1), 0, 1, 100, 0));//col+colOffset, 100, col);
   
   noStroke();
   for(var i = 1; i < stars.length; i++){
@@ -157,16 +157,17 @@ function draw() {
     particles.push(p); 
   }
   
-  //Color offset when volume reaches a sertain level
+  //Color offset when volume reaches a certain level
   if(volHist[currHist] >= 0.55){
     colOffset = 50;
   }else{
     colOffset = 0;
   }
   
+  //String pulling
   for(var i = 0; i < volHist.length ; i++){
     if(i <= player.song.currentTime() + q ){
-      volHist[i] = lerp(volHist[i], 0, 0.1);
+      volHist[i] = lerp(volHist[i], 0, 0.125);
     }
   }
   
