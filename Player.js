@@ -35,7 +35,7 @@ class Player {
         if(
           this.isLoaded && 
           this.song.isPlaying() &&
-          this.song.currentTime() >= this.song.duration() - this.song.duration() / 100 * 10 
+          this.song.currentTime() >= this.song.duration() * 0.85
         ) {
           this.isLoaded = false
           this.next()
@@ -57,7 +57,8 @@ class Player {
 
       this.songData = this.playList[(songIndex || this.songIndex)]
       this.song = await this.load()
-      // console.log(this.song)
+      
+      this.toggleAutoPlay(this.autoPlay)
       this.isLoaded = true
       this.play()
       resolve(this.isLoaded)
