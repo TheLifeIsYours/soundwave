@@ -79,7 +79,7 @@ function Star(x, y){
     if(col < 7){
      fill(0, 0, 20);
     }else{
-      fill(col+colOffset, 100, col);
+      fill(col+colOffset, 100, col + 20);
     }
     ellipse(this.pos.x, this.pos.y, this.r + (this.r ** volHist[currHist-1]) ** 1.25, this.r  + (this.r ** volHist[currHist-1]) ** 1.25);
   }
